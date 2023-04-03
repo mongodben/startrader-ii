@@ -1,0 +1,222 @@
+[
+    {
+        "_id": "000000000000000000000001",
+        "ship_type_id": "00000000000000000000000a",
+        "custom_name": null,
+        "sale_price": 1000000,
+        "lightyears_traveled": 24999,
+        "owner_user_id": "00000000000000000000000e",
+        "for_sale": true,
+        "seller_comment": "The ship that made the Kessel Run in 12 parsecs!",
+        "post_date": "2023-04-03T17:20:25.600820"
+    },
+    {
+        "_id": "000000000000000000000002",
+        "ship_type_id": "000000000000000000000009",
+        "custom_name": null,
+        "sale_price": 1000000000000,
+        "lightyears_traveled": 5,
+        "owner_user_id": "00000000000000000000000c",
+        "for_sale": true,
+        "seller_comment": "Low Mileage!  Slightly used, great for destroying planets and rebel bases.  WARNING Keep Skywalkers away from exhaust ports!",
+        "post_date": "2023-04-03T17:20:25.600835"
+    },
+    {
+        "_id": "000000000000000000000003",
+        "ship_type_id": "000000000000000000000030",
+        "custom_name": "Obe-Wan's Jedi Starfighter",
+        "sale_price": 220000,
+        "lightyears_traveled": 57899,
+        "owner_user_id": "00000000000000000000000a",
+        "for_sale": true,
+        "seller_comment": "Ship priced to move ASAP! Need credits fast to head to Alderaan with Luke!  Spent many years burried in the sands of Tatooine, sand everywhere...",
+        "post_date": "2023-04-03T17:20:25.600837"
+    },
+    {
+        "_id": "000000000000000000000004",
+        "ship_type_id": "00000000000000000000000e",
+        "custom_name": null,
+        "sale_price": 119999,
+        "lightyears_traveled": 67899,
+        "owner_user_id": "000000000000000000000004",
+        "for_sale": true,
+        "seller_comment": "The Emperor is buying me a new TIE Fighter, need to sell this one.  Serious inquiries only. No rebel scum please",
+        "post_date": "2023-04-03T17:20:25.600839"
+    },
+    {
+        "_id": "000000000000000000000005",
+        "ship_type_id": "00000000000000000000001b",
+        "custom_name": "Home 1",
+        "sale_price": 100000000,
+        "lightyears_traveled": 124995,
+        "owner_user_id": "00000000000000000000001b",
+        "for_sale": true,
+        "seller_comment": "It's a trap!  No price should be this low for a ship this great!",
+        "post_date": "2023-04-03T17:20:25.600841"
+    },
+    {
+        "_id": "000000000000000000000006",
+        "ship_type_id": "000000000000000000000015",
+        "custom_name": "Boba Fett's Ship",
+        "sale_price": 249999,
+        "lightyears_traveled": 24587,
+        "owner_user_id": "000000000000000000000016",
+        "for_sale": true,
+        "seller_comment": "Great ship for hunting down Jedis or smugglers named Solo",
+        "post_date": "2023-04-03T17:20:25.600843"
+    },
+    {
+        "_id": "000000000000000000000007",
+        "ship_type_id": "00000000000000000000000c",
+        "custom_name": "Lauretta",
+        "sale_price": 105000,
+        "lightyears_traveled": 350950,
+        "owner_user_id": "000000000000000000000012",
+        "for_sale": true,
+        "seller_comment": "Used X-wing fighter for sale, needs new hyperdrive, cockpit smells like Wookie...",
+        "post_date": "2023-04-03T17:20:25.600845"
+    },
+    {
+        "_id": "000000000000000000000008",
+        "ship_type_id": "000000000000000000000003",
+        "custom_name": "Star Destroyer #127",
+        "sale_price": 12000000,
+        "lightyears_traveled": 157000,
+        "owner_user_id": "000000000000000000000015",
+        "for_sale": true,
+        "seller_comment": "I have so many Star Destroyers, this one no longer pleases me.",
+        "post_date": "2023-04-03T17:20:25.600847"
+    },
+    {
+        "_id": "000000000000000000000009",
+        "ship_type_id": "000000000000000000000016",
+        "custom_name": "Imperial Shuttle #291",
+        "sale_price": 143000,
+        "lightyears_traveled": 251000,
+        "owner_user_id": "00000000000000000000000e",
+        "for_sale": true,
+        "seller_comment": "Won this from a Corellian Trader in a game of sabacc...  Its no Millenium Falcon so its up for sale!",
+        "post_date": "2023-04-03T17:20:25.600850"
+    },
+    {
+        "_id": "00000000000000000000000a",
+        "ship_type_id": "00000000000000000000000f",
+        "custom_name": "Vader's Capital Ship",
+        "sale_price": 750000000,
+        "lightyears_traveled": 150000,
+        "owner_user_id": "000000000000000000000004",
+        "for_sale": true,
+        "seller_comment": "But it while you can, it may crash into the second Death Star one day and explode, who knows?",
+        "post_date": "2023-04-03T17:20:25.600852"
+    },
+    {
+        "_id": "00000000000000000000000b",
+        "ship_type_id": "00000000000000000000002f",
+        "custom_name": "Rebel Freighter",
+        "sale_price": 620000,
+        "lightyears_traveled": 430000,
+        "owner_user_id": "000000000000000000000019",
+        "for_sale": true,
+        "seller_comment": "This ship is no \"Falcon\" but I lost that ship in a card game to Han Solo... It will make the Kessel Run in 34 parsecs!",
+        "post_date": "2023-04-03T17:20:25.600854"
+    },
+    {
+        "_id": "00000000000000000000000c",
+        "ship_type_id": "000000000000000000000021",
+        "custom_name": "Imperial Cargo Ship",
+        "sale_price": 165000,
+        "lightyears_traveled": 148005,
+        "owner_user_id": "000000000000000000000018",
+        "for_sale": true,
+        "seller_comment": "Great cargo ship, smells like Bantha...",
+        "post_date": "2023-04-03T17:20:25.600856"
+    },
+    {
+        "_id": "00000000000000000000000d",
+        "ship_type_id": "000000000000000000000029",
+        "custom_name": "Imperial transport ship",
+        "sale_price": 3120000,
+        "lightyears_traveled": 224725,
+        "owner_user_id": "000000000000000000000011",
+        "for_sale": true,
+        "seller_comment": "Need to sell, this ship has too much leg room for me...",
+        "post_date": "2023-04-03T17:20:25.600858"
+    },
+    {
+        "_id": "00000000000000000000000e",
+        "ship_type_id": "000000000000000000000002",
+        "custom_name": "Tantive IV",
+        "sale_price": 1734000,
+        "lightyears_traveled": 425000,
+        "owner_user_id": "000000000000000000000005",
+        "for_sale": true,
+        "seller_comment": "It's been in my family for years, I don't know if I can part with it, for under 1,700,000 credits...",
+        "post_date": "2023-04-03T17:20:25.600860"
+    },
+    {
+        "_id": "00000000000000000000000f",
+        "ship_type_id": "000000000000000000000017",
+        "custom_name": "Nebulon Escort Frigate",
+        "sale_price": 3999000,
+        "lightyears_traveled": 625000,
+        "owner_user_id": "00000000000000000000001f",
+        "for_sale": true,
+        "seller_comment": "Don't tell the Rebellion I have one of these ships for sale!",
+        "post_date": "2023-04-03T17:20:25.600861"
+    },
+    {
+        "_id": "000000000000000000000010",
+        "ship_type_id": "00000000000000000000001e",
+        "custom_name": "UT-60D U-wing",
+        "sale_price": 120000,
+        "lightyears_traveled": 215999,
+        "owner_user_id": "000000000000000000000009",
+        "for_sale": true,
+        "seller_comment": "I don't think Cassain is coming back for his ship... Make me an offer!",
+        "post_date": "2023-04-03T17:20:25.600863"
+    },
+    {
+        "_id": "000000000000000000000011",
+        "ship_type_id": "000000000000000000000005",
+        "custom_name": "Imperial Landing Craft",
+        "sale_price": 100000,
+        "lightyears_traveled": 255999,
+        "owner_user_id": "00000000000000000000001e",
+        "for_sale": true,
+        "seller_comment": "They just left this behind after blowing up the death star, anyone want it?",
+        "post_date": "2023-04-03T17:20:25.600865"
+    },
+    {
+        "_id": "000000000000000000000012",
+        "ship_type_id": "000000000000000000000028",
+        "custom_name": "Naboo Transport W-2",
+        "sale_price": 370000,
+        "lightyears_traveled": 182575,
+        "owner_user_id": "000000000000000000000021",
+        "for_sale": true,
+        "seller_comment": "Ahhh NUBIAN!  I give you great price!",
+        "post_date": "2023-04-03T17:20:25.600867"
+    },
+    {
+        "_id": "000000000000000000000013",
+        "ship_type_id": "000000000000000000000013",
+        "custom_name": "ARC Hornet",
+        "sale_price": 145000,
+        "lightyears_traveled": 190500,
+        "owner_user_id": "00000000000000000000001d",
+        "for_sale": true,
+        "seller_comment": "Floats like a butterfly, stings like a HORNET!",
+        "post_date": "2023-04-03T17:20:25.600869"
+    },
+    {
+        "_id": "000000000000000000000014",
+        "ship_type_id": "00000000000000000000001c",
+        "custom_name": "A-wing Model 2",
+        "sale_price": 50000,
+        "lightyears_traveled": 65000,
+        "owner_user_id": "00000000000000000000001c",
+        "for_sale": true,
+        "seller_comment": "Great opportunity for an Imperial to own some Rebel Tech! (It's really made out of cardboard.)",
+        "post_date": "2023-04-03T17:20:25.600871"
+    }
+]

@@ -1,0 +1,266 @@
+[
+    {
+        "_id": "000000000000000000000001",
+        "name": "Luke Skywalker",
+        "email": "lukeskywalker@aol.com",
+        "password": "force1",
+        "species": "Human",
+        "bio": "Luke Skywalker was a Tatooine farm boy who rose from humble beginnings to become one of the greatest Jedi the galaxy has ever known."
+    },
+    {
+        "_id": "000000000000000000000002",
+        "name": "C-3PO",
+        "email": "goldguy@gmail.com",
+        "password": "masterluke",
+        "species": "Driod",
+        "bio": "C-3PO longs for more peaceful times, but his continued service to the Resistance \u2014 and his knowledge of more than seven million forms of communication \u2014 keeps the worry-prone droid in the frontlines of galactic conflict."
+    },
+    {
+        "_id": "000000000000000000000003",
+        "name": "R2-D2",
+        "email": "droid1@R2D2.net",
+        "password": "xwingsrule4",
+        "species": "Driod",
+        "bio": "A reliable and versatile astromech droid, R2-D2 has served Padm\u00e9 Amidala, Anakin Skywalker, and Luke Skywalker in turn, showing great bravery in rescuing his masters and their friends from many perils"
+    },
+    {
+        "_id": "000000000000000000000004",
+        "name": "Darth Vader",
+        "email": "darkside4life@hotmail.com",
+        "password": "iamyourfather",
+        "species": "Human",
+        "bio": "Once a heroic Jedi Knight, Darth Vader was seduced by the dark side of the Force, became a Sith Lord, and led the Empire\u2019s eradication of the Jedi Order. But there was still good in him\u2026"
+    },
+    {
+        "_id": "000000000000000000000005",
+        "name": "Leia Organa",
+        "email": "goldenbikini@mac.com",
+        "password": "ewoksarecute",
+        "species": "Human",
+        "bio": "Princess Leia Organa was one of the greatest leaders of the Rebel Alliance, fearless on the battlefield and dedicated to ending the Empire\u2019s tyranny. Daughter of Padm\u00e9 Amidala and Anakin Skywalker, sister of Luke Skywalker, and with a soft spot for scoundrels, Leia ranked among the galaxy\u2019s great heroes."
+    },
+    {
+        "_id": "000000000000000000000006",
+        "name": "Owen Lars",
+        "email": "larsevaporators@tatooine.org",
+        "password": "evaporators",
+        "species": "Human",
+        "bio": "Owen Lars continued his father Cliegg\u2019s efforts to build his homestead into a productive farm, working alongside his wife, Beru. Helping with the dreary chores required to keep the farm profitable, Owen relied on his nephew Luke Skywalker. He could not rein in Luke's drive for adventure, though."
+    },
+    {
+        "_id": "000000000000000000000007",
+        "name": "Beru Whitesun Lars",
+        "email": "auntberu@optimium.net",
+        "password": "larssmells",
+        "species": "Human",
+        "bio": "As a young, shy girl, Beru Whitesun's aspirations did not reach beyond Tatooine. She was content to marry Owen Lars and lead the tough life of a moisture farmer."
+    },
+    {
+        "_id": "000000000000000000000008",
+        "name": "R5-D4",
+        "email": "wishiwasr2d2@R2D2.net",
+        "password": "notr2d2",
+        "species": "Driod",
+        "bio": "A red astromech droid, R5-D4 thought he'd found a home when the Jawas sold him to Owen Lars, along with the protocol droid C-3PO. But R5's motivator blew as he rolled away from the sandcrawler, forcing the Jawas to take him back in exchange for R2-D2."
+    },
+    {
+        "_id": "000000000000000000000009",
+        "name": "Biggs Darklighter",
+        "email": "biggs@rebels.com",
+        "password": "imbiggs",
+        "species": "Human",
+        "bio": "Biggs Darklighter grew up on Tatooine with Luke Skywalker, and shared his friend's dreams of escaping the dull desert world. After graduating from the Imperial Academy, he defected from the Empire's service to join the Rebellion."
+    },
+    {
+        "_id": "00000000000000000000000a",
+        "name": "Obi-Wan Kenobi",
+        "email": "force2@force.net",
+        "password": "usetheforceluke",
+        "species": "Human",
+        "bio": "A legendary Jedi Master, Obi-Wan Kenobi was a noble man and gifted in the ways of the Force. He trained Anakin Skywalker, served as a general in the Republic Army during the Clone Wars, and guided Luke Skywalker as a mentor."
+    },
+    {
+        "_id": "00000000000000000000000b",
+        "name": "Anakin Skywalker",
+        "email": "anny1@jediturnedsith.org",
+        "password": "imreallyvader",
+        "species": "Human",
+        "bio": "Discovered as a slave on Tatooine by Qui-Gon Jinn and Obi-Wan Kenobi, Anakin Skywalker had the potential to become one of the most powerful Jedi ever, and was believed by some to be the prophesied Chosen One who would bring balance to the Force."
+    },
+    {
+        "_id": "00000000000000000000000c",
+        "name": "Wilhuff Tarkin",
+        "email": "moftarkin@empirerulez.com",
+        "password": "deathstar1",
+        "species": "Human",
+        "bio": "An ambitious, ruthless proponent of military power, Wilhuff Tarkin became a favorite of Supreme Chancellor Palpatine and rose rapidly through the Imperial ranks. Shortly after the Empire's creation, he was put in charge of the construction of the Death Star. "
+    },
+    {
+        "_id": "00000000000000000000000d",
+        "name": "Chewbacca",
+        "email": "chewie@falcon.com",
+        "password": "wookie1",
+        "species": "Wookie",
+        "bio": "A legendary Wookiee warrior and Han Solo\u2019s longtime co-pilot, Chewbacca continues to serve as faithful first mate to carry out daring missions against the First Order behind the controls of the Millennium Falcon. Known as Chewie to his closest friends, he was part of a core group of rebels who restored freedom to the galaxy during the reign of the Galactic Empire. "
+    },
+    {
+        "_id": "00000000000000000000000e",
+        "name": "Han Solo",
+        "email": "solo1@falcon.com",
+        "password": "12parsecs",
+        "species": "Human",
+        "bio": "Han Solo rose from an impoverished childhood on the mean streets of Corellia to become one of the heroes of the Rebel Alliance. As captain of the Millennium Falcon, Han and his co-pilot Chewbacca came to believe in the cause of galactic freedom, joining Luke Skywalker and Princess Leia Organa in the fight against the Empire."
+    },
+    {
+        "_id": "00000000000000000000000f",
+        "name": "Greedo",
+        "email": "greedo@bountyhunters.org",
+        "password": "hanshotme",
+        "species": "Rodian",
+        "bio": "Greedo was a Rodian bounty hunter with a tapir-like snout, bulbous eyes, pea-green skin, and a crest of spines atop his skull. He was overzealous and a bit slow on the take, not to mention a pretty poor shot with a blaster. "
+    },
+    {
+        "_id": "000000000000000000000010",
+        "name": "Jabba Desilijic Tiure",
+        "email": "jabba@hutt.net",
+        "password": "iwillgetyousolo",
+        "species": "Hutt",
+        "bio": "Jabba the Hutt was one of the galaxy\u2019s most powerful gangsters, with far-reaching influence in both politics and the criminal underworld."
+    },
+    {
+        "_id": "000000000000000000000011",
+        "name": "Darth Maul",
+        "email": "darthmaul@jediturnedsith.org",
+        "password": "jediscum",
+        "species": "Tholothian",
+        "bio": "A deadly, agile Sith Lord trained by the evil Darth Sidious, Darth Maul was a formidable warrior and scheming mastermind. He wielded an intimidating double-bladed lightsaber and fought with a menacing ferocity. "
+    },
+    {
+        "_id": "000000000000000000000012",
+        "name": "Wedge Antilles",
+        "email": "wedge2@rebels.com",
+        "password": "wedgethis",
+        "species": "Human",
+        "bio": "A talented young rebel pilot from Corellia, Wedge Antilles survived the attack on the first Death Star to become a respected veteran of Rogue Squadron."
+    },
+    {
+        "_id": "000000000000000000000013",
+        "name": "Jek Tono Porkins",
+        "email": "jek@rebels.com",
+        "password": "vaderkilledme",
+        "species": "Human",
+        "bio": "Jek Tono Porkins, nicknamed 'Piggy', was a male human trader and pilot from Bestine IV. He decided to abandon his homeworld after the Galactic Empire moved in and built a new military base there, and he ended up joining the Alliance to Restore the Republic."
+    },
+    {
+        "_id": "000000000000000000000014",
+        "name": "Yoda",
+        "email": "yoda@force.net",
+        "password": "thereisnotry",
+        "species": "Yoda's Species",
+        "bio": "Yoda was a legendary Jedi Master and stronger than most in his connection with the Force. Small in size but wise and powerful, he trained Jedi for over 800 years, playing integral roles in the Clone Wars, the instruction of Luke Skywalker, and unlocking the path to immortality."
+    },
+    {
+        "_id": "000000000000000000000015",
+        "name": "Palpatine",
+        "email": "emperor@jediturnedsith.org",
+        "password": "darkside",
+        "species": "Human",
+        "bio": "The dark side of the Force is a pathway to many abilities some consider to be unnatural, and Sheev Palpatine is the most infamous follower of its doctrines. Scheming, powerful, and evil to the core, Darth Sidious restored the Sith and destroyed the Jedi Order. Living a double life, he was also Palpatine, a Naboo Senator and phantom menace"
+    },
+    {
+        "_id": "000000000000000000000016",
+        "name": "Boba Fett",
+        "email": "bfett@bountyhunters.org",
+        "password": "",
+        "species": "Human",
+        "bio": "With his customized Mandalorian armor, deadly weaponry, and silent demeanor, Boba Fett was one of the most feared bounty hunters in the galaxy. A genetic clone of his \u201cfather,\u201d bounty hunter Jango Fett, Boba learned combat and martial skills from a young age."
+    },
+    {
+        "_id": "000000000000000000000017",
+        "name": "IG-88",
+        "email": "IG@R2D2.net",
+        "password": "imdroid",
+        "species": "Driod",
+        "bio": "IG-88 is a battered chrome war droid who has become a bounty hunter, and answered Darth Vader's call to capture the Millennium Falcon during the events surrounding the Battle of Hoth."
+    },
+    {
+        "_id": "000000000000000000000018",
+        "name": "Bossk",
+        "email": "bossk@bountyhunters.org",
+        "password": "bossk1",
+        "species": "Trandoshan",
+        "bio": "One of the most feared bounty hunters of the galaxy, Bossk used his natural Trandoshan hunting instincts to capture his prey. During the Clone Wars, the red-eyed reptilian partnered with Aurra Sing, Castas and young Boba Fett. Bossk didn't care much for vendettas or politics. He was in it to get paid. After a brief stint in a Republic prison, Bossk continued his partnership with Fett, becoming a bodyguard to the teen bounty hunter."
+    },
+    {
+        "_id": "000000000000000000000019",
+        "name": "Lando Calrissian",
+        "email": "lando@falcon.com",
+        "password": "cloudcity",
+        "species": "Human",
+        "bio": "Lando Calrissian may have come late to the fight against the Empire, but his role in destroying the second Death Star cemented his reputation as a hero. After he lost his beloved ship to Han Solo, Lando spent years living the high life and pursuing get-rich-quick schemes, with uneven results. He went semi-respectable as the baron administrator of Cloud City, only to be drawn into the fight against the Empire. "
+    },
+    {
+        "_id": "00000000000000000000001a",
+        "name": "Lobot",
+        "email": "lobot@cloudcity.com",
+        "password": "lobot",
+        "species": "Driod",
+        "bio": "Never far from Baron Administrator Lando Calrissian's side was Lobot, Calrissian's aide and Cloud City's computer liaison officer. Lobot is a human male with a shiny, brain-enhancing device wrapped around the back of his skull that allowed him to contact directly with the city's central computer."
+    },
+    {
+        "_id": "00000000000000000000001b",
+        "name": "Admiral Ackbar",
+        "email": "ackie@rebels.com",
+        "password": "itsatrap",
+        "species": "Mon Calamari",
+        "bio": "A veteran commander, Ackbar led the defense of his homeworld, Mon Cala, during the Clone Wars and then masterminded the rebel attack on the second Death Star at the Battle of Endor. Ackbar realized the rebels had been drawn into a trap at Endor, but adjusted, with his fleet buying valuable time for the attack to succeed. "
+    },
+    {
+        "_id": "00000000000000000000001c",
+        "name": "Mon Mothma",
+        "email": "mon@rebels.com",
+        "password": "mothma",
+        "species": "Human",
+        "bio": "A leader of the Galactic Senate's Loyalist faction, Mon Mothma opposed Supreme Chancellor Palpatine's policies during the final days of the Republic. Working in secret, she helped found the Rebel Alliance, and served as its civilian leader during the long struggle against the Empire."
+    },
+    {
+        "_id": "00000000000000000000001d",
+        "name": "Arvel Crynyd",
+        "email": "crynyd@rebels.com",
+        "password": "nooneknowsme",
+        "species": "Human",
+        "bio": "Arvel Crynyd was a male human pilot who served in the Alliance to Restore the Republic during the Galactic Civil War. In the war's fourth year, Commander Crynyd participated in the Rebellion's attack on the Galactic Empire's second Death Star in the Battle of Endor, flying an RZ-1 A-wing interceptor in Green Squadron as leader of the squadron"
+    },
+    {
+        "_id": "00000000000000000000001e",
+        "name": "Wicket Systri Warrick",
+        "email": "wicket@emok.org",
+        "password": "lublub",
+        "species": "Ewok",
+        "bio": "Wicket W. Warrick was the brave young Ewok who willingly joined the Rebellion and aided in the battle against the Empire on the forest moon of Endor. Even before he encountered the Rebels, Wicket had devised methods for defeating the Imperial machines, plans which were implemented after the Ewok befriended Princess Leia and recruited his tribe to the Alliance's cause."
+    },
+    {
+        "_id": "00000000000000000000001f",
+        "name": "Nien Nunb",
+        "email": "nunb@rebels.com",
+        "password": "nubnub",
+        "species": "Sullustan",
+        "bio": "A native of Sullust, Nien Nunb was a smuggler who fought for both the Rebel Alliance and the Resistance during his long career. An expert pilot, he served as Lando Calrissian\u2019s co-pilot aboard the Millennium Falcon during the Battle of Endor, flew an X-wing in the raid on Starkiller Base and survived the First Order\u2019s assault on Crait."
+    },
+    {
+        "_id": "000000000000000000000020",
+        "name": "Qui-Gon Jinn",
+        "email": "quigon@force.net",
+        "password": "jedi4life",
+        "species": "Human",
+        "bio": "A venerable if maverick Jedi Master, Qui-Gon Jinn was a student of the living Force. Qui-Gon lived for the moment, espousing a philosophy of 'feel, don't think -- use your instincts.' On Tatooine, Qui-Gon discovered a young slave boy named Anakin Skywalker who was strong in the Force. Sensing the boy's potential, Qui-Gon liberated Anakin from slavery."
+    },
+    {
+        "_id": "000000000000000000000021",
+        "name": "Watto",
+        "email": "watto@ibuyjunk.org",
+        "password": "nubian",
+        "species": "Toydarian",
+        "bio": "Watto was a Toydarian junk dealer in Mos Espa who bought Shmi Skywalker and her son Anakin from Gardulla the Hutt. An inveterate gambler, he sponsored Anakin in several Podraces, but often bet against his own slave, who was talented but inexperienced."
+    }
+]
