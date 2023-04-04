@@ -27,6 +27,7 @@ dependencies {
     implementation("io.ktor:ktor-server-call-logging-jvm:$ktor_version")
     implementation("org.litote.kmongo:kmongo-coroutine:4.8.0")
     implementation("org.mongodb:bson:4.9.0")
+    implementation("io.github.cdimascio:dotenv-kotlin:6.4.1")
     implementation("io.ktor:ktor-server-default-headers-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-cors-jvm:$ktor_version")
     implementation("io.ktor:ktor-server-auth-jvm:$ktor_version")
