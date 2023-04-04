@@ -1,0 +1,1 @@
+rootProject.name = "io.perlmutter.ben.startrader-server"
