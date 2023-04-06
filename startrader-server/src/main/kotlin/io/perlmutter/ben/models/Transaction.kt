@@ -1,13 +1,16 @@
 package io.perlmutter.ben.models
-import org.bson.BsonObjectId
-import org.bson.codecs.DateCodec
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
-import org.bson.codecs.pojo.annotations.BsonProperty
-import org.litote.kmongo.*
+import org.litote.kmongo.Id
+import org.litote.kmongo.newId
+import java.util.*
+
+@Serializable
 data class Transaction (
     @BsonId val key: Id<Transaction> = newId(),
-    @BsonProperty("buyer_user_id") val buyerUserId: BsonObjectId,
-    @BsonProperty("seller_user_id") val sellerUserId: BsonObjectId,
-    @BsonProperty("sale_date") val saleDate: DateCodec,
-    @BsonProperty("sale_price") val salePrice: Float,
+    val buyer_user_id: Id<User>,
+    val seller_user_id: Id<User>,
+    @Contextual val sale_date: Date,
+    val sale_price: Float,
 )

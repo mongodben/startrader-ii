@@ -1,18 +1,21 @@
 package io.perlmutter.ben.models
 
-import org.bson.BsonObjectId
-import org.bson.codecs.DateCodec
+import kotlinx.serialization.Contextual
+import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
-import org.bson.codecs.pojo.annotations.BsonProperty
-import org.litote.kmongo.*
+import org.litote.kmongo.Id
+import org.litote.kmongo.newId
+import java.util.*
+
+@Serializable
 data class Starship (
     @BsonId val key: Id<Starship> = newId(),
-    @BsonProperty("ship_type_id") val shipTypeId: BsonObjectId,
-    @BsonProperty("custom_name") val customName: String,
-    @BsonProperty("sale_price") val salePrice: Float,
-    @BsonProperty("light_years_traveled") val lightYearsTraveled: Int,
-    @BsonProperty("owner_user_id") val ownerUserId: BsonObjectId,
-    @BsonProperty("for_sale") val forSale: Boolean,
-    @BsonProperty("seller_comment") val sellerComment: Boolean,
-    @BsonProperty("post_date") val postDate: Boolean,
+    val ship_type_id: Id<StarshipType>,
+    val custom_name: String?,
+    val sale_price: Float,
+    val light_years_traveled: Int,
+    val owner_user_id: Id<User>,
+    val for_sale: Boolean,
+    val seller_comment: String,
+    @Contextual val post_date: Date,
 )

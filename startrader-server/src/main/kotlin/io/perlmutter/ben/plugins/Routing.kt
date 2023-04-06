@@ -1,13 +1,12 @@
 package io.perlmutter.ben.plugins
 
-import io.ktor.server.routing.*
-import io.ktor.server.response.*
 import io.ktor.server.application.*
+import io.ktor.server.routing.*
+import io.perlmutter.ben.routes.getAllShipsRoute
+import org.litote.kmongo.coroutine.CoroutineDatabase
 
-fun Application.configureRouting() {
+fun Application.configureRouting(database: CoroutineDatabase) {
     routing {
-        get("/") {
-            call.respondText("Hello World!")
-        }
+        getAllShipsRoute(database)
     }
 }

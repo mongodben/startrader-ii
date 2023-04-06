@@ -1,4 +1,5 @@
 package io.perlmutter.ben.models
+import kotlinx.serialization.Serializable
 import org.bson.codecs.pojo.annotations.BsonId
 import org.litote.kmongo.Id
 import org.litote.kmongo.newId
@@ -44,6 +45,7 @@ enum class SpeciesType(val species: String) {
 }
 
 
+@Serializable
 data class User (
     @BsonId val key: Id<User> = newId(),
     val name: SpeciesType,
