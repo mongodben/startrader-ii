@@ -15,7 +15,7 @@ client = pymongo.MongoClient(MONGODB_CONNECTION_URI)
 
 
 files = ["data/users.json", "data/starships.json",
-         "data/transactions.json", "data/ship_types.json"]
+         "data/transactions.json", "data/ship_types.json", "data/species.json"]
 
 
 def load_data_from_json(file_name):
@@ -27,6 +27,7 @@ user_data = load_data_from_json(files[0])
 starship_data = load_data_from_json(files[1])
 transaction_data = load_data_from_json(files[2])
 ship_type_data = load_data_from_json(files[3])
+species_data = load_data_from_json(files[4])
 
 
 def load_mongo_data(data, collection_name):
@@ -82,5 +83,6 @@ load_mongo_data(users_bson, "users")
 load_mongo_data(starships_bson, "starships")
 load_mongo_data(transactions_bson, "transactions")
 load_mongo_data(ship_types_bson, "ship_types")
+load_mongo_data(species_data, "species")
 
 client.close()

@@ -75,6 +75,12 @@ def create_transaction_document(transaction):
     }
 
 
+def create_species_document(species):
+    return {
+        "species_type": species["species_type"],
+    }
+
+
 def convert_data_to_json(data, file_name):
     json_data = json.dumps(data, indent=4, cls=DateTimeEncoder)
     with open(file_name, "w") as f:
@@ -109,11 +115,15 @@ def main():
     ship_types_documents = [create_starship_type_document(
         st) for st in ship_types]
 
+    species_documents = [create_species_document(
+        s) for s in species]
+
     # write to JSON files
     convert_data_to_json(user_documents, "data/users.json")
     convert_data_to_json(starship_documents, "data/starships.json")
     convert_data_to_json(transaction_documents, "data/transactions.json")
     convert_data_to_json(ship_types_documents, "data/ship_types.json")
+    convert_data_to_json(species_documents, "data/species.json")
 
 
 class DateTimeEncoder(json.JSONEncoder):
