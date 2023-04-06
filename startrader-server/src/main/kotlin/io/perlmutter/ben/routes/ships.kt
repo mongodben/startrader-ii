@@ -82,3 +82,13 @@ fun Route.getStarshipByIdRoute(database: CoroutineDatabase) {
         }
     }
 }
+
+fun Route.getAllShipTypesRoute(database: CoroutineDatabase) {
+    get("/ships/shiptypes") {
+        val shipTypes = database.getCollection<StarshipType>("ship_types")
+        val allShipTypes = shipTypes.find().toList()
+        val response = mapOf("ship_types" to allShipTypes).json
+
+        call.respond(HttpStatusCode.OK, response)
+    }
+}

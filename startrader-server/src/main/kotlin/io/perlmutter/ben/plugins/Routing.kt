@@ -2,9 +2,7 @@ package io.perlmutter.ben.plugins
 
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
-import io.perlmutter.ben.routes.getAllShipsRoute
-import io.perlmutter.ben.routes.getStarshipByIdRoute
-import io.perlmutter.ben.routes.getUserByIdRoute
+import io.perlmutter.ben.routes.*
 import org.litote.kmongo.coroutine.CoroutineDatabase
 
 fun Application.configureRouting(database: CoroutineDatabase) {
@@ -12,5 +10,7 @@ fun Application.configureRouting(database: CoroutineDatabase) {
         getAllShipsRoute(database)
         getUserByIdRoute(database)
         getStarshipByIdRoute(database)
+        getSpeciesRoute(database)
+        getAllShipTypesRoute(database)
     }
 }

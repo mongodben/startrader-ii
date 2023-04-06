@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useContext } from 'react';
-import {useParams} from 'react-router-dom';
-import { Content, Image, Frame, Button, withStyles, Link} from "arwes";
-import LoadingBig from './LoadingBig';
-import appContext from './Context';
-import EditListingModal from './EditListingModal';
-import BuyShipModal from './BuyShipModal';
+import React, { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { Content, Image, Frame, Button, withStyles, Link } from "arwes";
+import LoadingBig from "./LoadingBig";
+import appContext from "./Context";
+import EditListingModal from "./EditListingModal";
+import BuyShipModal from "./BuyShipModal";
 
 const styles = (theme) => ({
   contentInFrame: {
@@ -71,7 +71,7 @@ const styles = (theme) => ({
     padding: ".5rem",
     gridColumn: "1/2",
     gridRow: "2 / 3",
-    height: '100%',
+    height: "100%",
     [`@media (max-width: ${theme.responsive.medium + 1}px)`]: {
       gridColumn: "1/2",
       gridRow: "3/4",
@@ -79,137 +79,141 @@ const styles = (theme) => ({
   },
 });
 
-const ListingPage = ({classes}) => { 
-    const shipId = parseInt(useParams().id);
-    const {id, user} = useContext(appContext);
-    const [ship, setShip] = useState({});
-    useEffect(()=>{
-      (async ()=>{
-        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/ships/${shipId}`)
-        const {star_ship} = await res.json();
-        setShip(star_ship);
-      })()
-    },[shipId, ship.id])
+const ListingPage = ({ classes }) => {
+  const shipId = useParams().id;
+  const { id } = useContext(appContext);
+  const [ship, setShip] = useState({});
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/ships/${shipId}`
+      );
+      const star_ship = await res.json();
+      setShip(star_ship);
+    })();
+  }, [shipId, ship.id]);
 
-    const triggerRender = async () => {
-        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/ships/${shipId}`);
-        const { star_ship } = await res.json();
-        setShip(star_ship);
-    }
-    return (
-      <>
-        {!ship.id ? (
-          <LoadingBig />
-        ) : (
-          <Content className={classes.container}>
-            <div className={classes.img}>
-              <Image
-                animate
-                layer="primary"
-                resources={ship.starship_type.ship_image}
-              ></Image>
-            </div>
-            <div className={classes.infoWrapper}>
-              <Content className={classes.mainInfo}>
-                <Frame animate level={3} corners={4}>
-                  <Content className={classes.contentInFrame}>
-                    <div
-                      style={{
-                        display: "flex",
-                        justifyContent: "space-between",
-                      }}
-                    >
-                      <h1>
-                        {ship.custom_name || ship.starship_type.type_name}
-                      </h1>
-                      {ship.user.id === id ? (
-                        ship.for_sale ? (
-                          <Button animate layer="success">
-                            For Sale
-                          </Button>
-                        ) : (
-                          <Button animate disabled>
-                            Not For Sale
-                          </Button>
-                        )
-                      ) : null}
-                    </div>
-                    <p>Price: {ship.sale_price} credits</p>
-                    <p>Lightyears Traveled: {ship.lightyears_traveled}</p>
-                    <p>Type: {ship.starship_type.type_name}</p>
-                    <p>Model: {ship.starship_type.model}</p>
-                    <p>Manufacturer: {ship.starship_type.manufacturer}</p>
-                    <p>Class: {ship.starship_type.starship_class}</p>
-                    <p>Seller Comment: {ship.seller_comment}</p>
-                    <p>
-                      {ship.user.id === id ? (
-                        <EditListingModal
-                          listing={ship}
-                          rerenderParent={triggerRender}
-                        />
-                      ) : ship.for_sale ? (
-                        <BuyShipModal
-                          ship={ship}
-                          rerenderParent={triggerRender}
-                        />
+  const triggerRender = async () => {
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/ships/${shipId}`
+    );
+    const star_ship = await res.json();
+    setShip(star_ship);
+  };
+  return (
+    <>
+      {console.log(ship)}
+      {!ship?._id?.$oid ? (
+        <LoadingBig />
+      ) : (
+        <Content className={classes.container}>
+          <div className={classes.img}>
+            <Image
+              animate
+              layer="primary"
+              resources={ship.ship_type.ship_image}
+            ></Image>
+          </div>
+          <div className={classes.infoWrapper}>
+            <Content className={classes.mainInfo}>
+              <Frame animate level={3} corners={4}>
+                <Content className={classes.contentInFrame}>
+                  <div
+                    style={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <h1>{ship.custom_name || ship.ship_type.type_name}</h1>
+                    {ship.user._id.$oid === id ? (
+                      ship.for_sale ? (
+                        <Button animate layer="success">
+                          For Sale
+                        </Button>
                       ) : (
                         <Button animate disabled>
                           Not For Sale
                         </Button>
-                      )}
-                    </p>
-                  </Content>
-                </Frame>
-              </Content>
-              <Content className={classes.seller}>
-                <Frame animate level={3} corners={4}>
-                  <Content className={classes.sellerContent}>
-                    <Content className={classes.sellerImg}>
-                      <Image resources={ship.user.user_image}></Image>
-                    </Content>
-                    <Content className={classes.sellerInfo}>
-                      <h2><span>{ship.for_sale ? "Seller" : "Owner"}</span> Info</h2>
-                      <p>{ship.user.name}</p>
-                      <Link href={`/users/${ship.user.id}`}>
-                        <Button>Go to Profile</Button>
-                      </Link>
-                    </Content>
-                  </Content>
-                </Frame>
-              </Content>
-            </div>
-
-            <div className={classes.additionalInfo}>
-              <Frame animate level={3} corners={4}>
-                <Content className={classes.contentInFrame}>
-                  <h3>Additional Info</h3>
-                  <div>
-                    <h4>Capacity</h4>
-                    <ul>
-                      <li>Cargo: {ship.starship_type.cargo}</li>
-                      <li>Consumables: {ship.starship_type.consumables}</li>
-                      <li>Crew: {ship.starship_type.crew}</li>
-                      <li>Passengers: {ship.starship_type.passengers}</li>
-                      <li>Length: {ship.starship_type.length}</li>
-                    </ul>
+                      )
+                    ) : null}
                   </div>
-                  <div>
-                    <h4>Speed</h4>
-                    <ul>
-                      <li>Base speed: {ship.starship_type.mglt}</li>
-                      <li>
-                        Hyperdrive Rating:{" "}
-                        {ship.starship_type.hyperdrive_rating}
-                      </li>
-                    </ul>
-                  </div>
+                  <p>Price: {ship.sale_price} credits</p>
+                  <p>Lightyears Traveled: {ship.lightyears_traveled}</p>
+                  <p>Type: {ship.ship_type.type_name}</p>
+                  <p>Model: {ship.ship_type.model}</p>
+                  <p>Manufacturer: {ship.ship_type.manufacturer}</p>
+                  <p>Class: {ship.ship_type.starship_class}</p>
+                  <p>Seller Comment: {ship.seller_comment}</p>
+                  <p>
+                    {ship.user._id.$oid === id ? (
+                      <EditListingModal
+                        listing={ship}
+                        rerenderParent={triggerRender}
+                      />
+                    ) : ship.for_sale ? (
+                      <BuyShipModal
+                        ship={ship}
+                        rerenderParent={triggerRender}
+                      />
+                    ) : (
+                      <Button animate disabled>
+                        Not For Sale
+                      </Button>
+                    )}
+                  </p>
                 </Content>
               </Frame>
-            </div>
-          </Content>
-        )}
-      </>
-    );
-}
+            </Content>
+            <Content className={classes.seller}>
+              <Frame animate level={3} corners={4}>
+                <Content className={classes.sellerContent}>
+                  <Content className={classes.sellerImg}>
+                    <Image resources={ship.user.user_image}></Image>
+                  </Content>
+                  <Content className={classes.sellerInfo}>
+                    <h2>
+                      <span>{ship.for_sale ? "Seller" : "Owner"}</span> Info
+                    </h2>
+                    <p>{ship.user.name}</p>
+                    <Link href={`/users/${ship.user._id.$oid}`}>
+                      <Button>Go to Profile</Button>
+                    </Link>
+                  </Content>
+                </Content>
+              </Frame>
+            </Content>
+          </div>
+
+          <div className={classes.additionalInfo}>
+            <Frame animate level={3} corners={4}>
+              <Content className={classes.contentInFrame}>
+                <h3>Additional Info</h3>
+                <div>
+                  <h4>Capacity</h4>
+                  <ul>
+                    <li>Cargo: {ship.ship_type.cargo}</li>
+                    <li>Consumables: {ship.ship_type.consumables}</li>
+                    <li>Crew: {ship.ship_type.crew}</li>
+                    <li>Passengers: {ship.ship_type.passengers}</li>
+                    <li>Length: {ship.ship_type.length}</li>
+                  </ul>
+                </div>
+                <div>
+                  <h4>Speed</h4>
+                  <ul>
+                    <li>Base speed: {ship.ship_type.mglt}</li>
+                    <li>
+                      Hyperdrive Rating: {ship.ship_type.hyperdrive_rating}
+                    </li>
+                  </ul>
+                </div>
+              </Content>
+            </Frame>
+          </div>
+        </Content>
+      )}
+    </>
+  );
+};
 
 export default withStyles(styles)(ListingPage);

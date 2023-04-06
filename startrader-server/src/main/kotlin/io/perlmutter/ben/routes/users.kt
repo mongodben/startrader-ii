@@ -58,3 +58,13 @@ fun Route.getUserByIdRoute(database: CoroutineDatabase) {
         }
     }
 }
+
+fun Route.getSpeciesRoute(database: CoroutineDatabase) {
+    get("/users/species") {
+        val speciesCollection = database.getCollection<Species>("species")
+        val allSpecies = speciesCollection.find().toList()
+        val species = mapOf("species" to allSpecies).json
+
+        call.respond(HttpStatusCode.OK, species)
+    }
+}
