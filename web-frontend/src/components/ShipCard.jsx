@@ -34,11 +34,12 @@ const ShipCard = ({ ship, hideOwner }) => {
   };
   return (
     <Content style={style.wrapper}>
+      {console.log(ship)}
       <Frame animate hover={true} style={style.img}>
         <a href={`/listings/${ship._id.$oid}`}>
           <Image
             animate
-            resources={ship.ship_type[0].ship_image}
+            resources={ship.ship_type.ship_image}
             layer="primary"
             style={style.img}
           ></Image>
@@ -46,7 +47,7 @@ const ShipCard = ({ ship, hideOwner }) => {
         <Content style={style.content}>
           <h3 style={style.content.title}>
             <a href={`/listings/${ship._id.$oid}`}>
-              {ship.custom_name || ship.ship_type[0].type_name}
+              {ship.custom_name || ship.ship_type.type_name}
             </a>
           </h3>
           <p style={style.content.additionalInfo}>

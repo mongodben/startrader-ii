@@ -1,12 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, Redirect } from "react-router-dom";
 import { Content, Image, Frame, Button, withStyles, Link } from "arwes";
-import appContext from './Context';
-import LoadingBig from './LoadingBig';
-import UserShips from './UserShips';
+import appContext from "./Context";
+import LoadingBig from "./LoadingBig";
+import UserShips from "./UserShips";
 // import EditProfile from './EditProfile';
-import EditProfileModal from './EditProfileModal';
-import AddCreditModal from './AddCreditModal';
+import EditProfileModal from "./EditProfileModal";
+import AddCreditModal from "./AddCreditModal";
 
 const styles = (theme) => ({
   profileWrapper: {
@@ -54,9 +54,9 @@ const styles = (theme) => ({
     paddingLeft: "1.5rem",
     [`@media (max-width: ${theme.responsive.small + 1}px)`]: {
       flexDirection: "row",
-      justifyContent: 'center',
-      flexWrap: 'wrap',
-      marginBottom: '1rem',
+      justifyContent: "center",
+      flexWrap: "wrap",
+      marginBottom: "1rem",
     },
   },
   profileButton: {
@@ -67,104 +67,108 @@ const styles = (theme) => ({
   },
 });
 
+const UserProfile = ({ classes, personalProfile }) => {
+  // personalProfile = false;
+  const { id: paramId } = useParams();
+  const { id } = useContext(appContext);
+  const [user, setUser] = useState({});
 
-const UserProfile = ({classes, personalProfile}) => {
-    const paramId = parseInt(useParams().id);
-    const context = useContext(appContext);
-    const id = context.id
+  //TODO REFACTOR AWAY FROM LOCAL STORAGE also
 
-    const [user, setUser] = useState({});
-    
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/users/${
+          personalProfile ? id : paramId
+        }`
+      );
+      const user = await res.json();
+      console.log(user);
+      setUser(user);
+    })();
+  }, [paramId, personalProfile, id, user?.id]);
+  const triggerRender = () => {
+    (async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/users/${
+          personalProfile ? id : paramId
+        }`
+      );
+      const user = await res.json();
+      setUser(user);
+    })();
+  };
 
-    //TODO REFACTOR AWAY FROM LOCAL STORAGE also
+  if (paramId === id) {
+    return <Redirect to="/profile" />;
+  }
 
-    useEffect(()=>{
-      ( async ()=>{
-        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/${personalProfile ? id : paramId}`);
-        const {user} = await res.json();
-        setUser(user);
-      })();
-    },[paramId, personalProfile, id, user.id]);
-    const triggerRender = () => {
-      (async () => {
-        const res = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/users/${personalProfile ? id : paramId}`
-        );
-        const { user } = await res.json();
-        setUser(user);
-      })();
-    };
-
-    console.table([paramId, id])
-    if (paramId === id) {
-      return <Redirect to="/profile" />;
-    }
-
-    return (
-      <>
-        {!user.id ? (
-          <LoadingBig />
-        ) : (
-          <Content className={classes.profileWrapper}>
-            <div className={classes.profileContentWrapper}>
-              <Frame animate level={3} corners={4}>
-                <section className={classes.profileContent}>
-                  <Image
-                    resources={user.user_image}
-                    animate
-                    layer="primary"
-                    className={classes.profilePicture}
-                  ></Image>
-                  <div className={classes.profileInfo}>
-                    <div className={classes.profileName}>
-                      <h1>{user.name}</h1>
-                      {personalProfile ? (
-                        <div
-                          className={classes.profileButtonWrapper}
-                        >
-                          <EditProfileModal
-                            renderProfile={() => triggerRender()}
-                            buttonStyles={{
-                              margin: ".25rem",
-                              display: "inline-block",
-                              width: 125,
-                              textAlign: "center",
-                            }}
-                          />
-                          <AddCreditModal
-                            renderProfile={triggerRender}
-                            buttonStyles={{
-                              margin: ".5rem",
-                              display: "inline-block",
-                              width: 125,
-                              textAlign: "center",
-                            }}
-                          />
-                          <Link href="/sell-ship">
-                            <Button className={classes.profileButton}>Sell Ship</Button>
-                          </Link>
-                        </div>
-                      ) : null}
-                    </div>
-                    {personalProfile ? <p>{user.credit} credits</p> : ""}
-                    <p className={classes.profileAdditionalInfo}>
-                      <span>{user.species_info.species_type}</span>
-                      {" • "}
-                      <span>{user.faction ? "Rebellion" : "Empire"}</span>
-                    </p>
-                    <p className={classes.profileBio}>{user.bio}</p>
+  return (
+    <>
+      {!user?.key?.$oid ? (
+        <LoadingBig />
+      ) : (
+        <Content className={classes.profileWrapper}>
+          {console.log(user)}
+          <div className={classes.profileContentWrapper}>
+            <Frame animate level={3} corners={4}>
+              <section className={classes.profileContent}>
+                <Image
+                  resources={user.user_image}
+                  animate
+                  layer="primary"
+                  className={classes.profilePicture}
+                ></Image>
+                <div className={classes.profileInfo}>
+                  <div className={classes.profileName}>
+                    <h1>{user.username}</h1>
+                    {personalProfile ? (
+                      <div className={classes.profileButtonWrapper}>
+                        <EditProfileModal
+                          renderProfile={() => triggerRender()}
+                          buttonStyles={{
+                            margin: ".25rem",
+                            display: "inline-block",
+                            width: 125,
+                            textAlign: "center",
+                          }}
+                        />
+                        <AddCreditModal
+                          renderProfile={triggerRender}
+                          buttonStyles={{
+                            margin: ".5rem",
+                            display: "inline-block",
+                            width: 125,
+                            textAlign: "center",
+                          }}
+                        />
+                        <Link href="/sell-ship">
+                          <Button className={classes.profileButton}>
+                            Sell Ship
+                          </Button>
+                        </Link>
+                      </div>
+                    ) : null}
                   </div>
-                </section>
-              </Frame>
-            </div>
-            <section>
-              <UserShips name={user.name} id={user.id} user={user} />
-            </section>
-            <section>{/* TODO: CREATE AND ADD TRANSACTION TABLE */}</section>
-          </Content>
-        )}
-      </>
-    );
-}
+                  {personalProfile ? <p>{user.credit} credits</p> : ""}
+                  <p className={classes.profileAdditionalInfo}>
+                    <span>{user.species}</span>
+                    {" • "}
+                    <span>{user.faction ? "Rebellion" : "Empire"}</span>
+                  </p>
+                  <p className={classes.profileBio}>{user.bio}</p>
+                </div>
+              </section>
+            </Frame>
+          </div>
+          <section>
+            <UserShips name={user.username} ships={user.starships} />
+          </section>
+          <section>{/* TODO: CREATE AND ADD TRANSACTION TABLE */}</section>
+        </Content>
+      )}
+    </>
+  );
+};
 
 export default withStyles(styles)(UserProfile);
