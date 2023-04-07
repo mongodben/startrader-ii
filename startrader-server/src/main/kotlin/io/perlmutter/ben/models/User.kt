@@ -12,5 +12,9 @@ data class User (
     val email: String,
     val password: String,
     val species: String, // TODO: figure out how to correlate this only with the SpeciesType `species` values
-    val bio: String
+    val bio: String,
+    val credits: Int = 0,
+    val faction: String?,
+    val force_points: Int = 0,
+    val user_image: String?,
 )

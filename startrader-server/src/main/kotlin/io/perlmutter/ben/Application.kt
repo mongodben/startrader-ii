@@ -1,11 +1,11 @@
 package io.perlmutter.ben
 
-//import io.ktor.server.plugins.statuspages.*
 import io.github.cdimascio.dotenv.dotenv
 import io.ktor.http.*
 import io.ktor.server.application.*
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
+import io.ktor.server.plugins.contentnegotiation.*
 import io.ktor.server.plugins.statuspages.*
 import io.ktor.server.response.*
 import io.perlmutter.ben.models.ErrorResponse
@@ -13,6 +13,7 @@ import io.perlmutter.ben.plugins.configureHTTP
 import io.perlmutter.ben.plugins.configureMonitoring
 import io.perlmutter.ben.plugins.configureRouting
 import io.perlmutter.ben.plugins.configureSecurity
+import io.ktor.serialization.kotlinx.json.*
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.json
 import org.litote.kmongo.reactivestreams.KMongo
@@ -34,6 +35,9 @@ fun Application.module() {
     val kmongoClient = KMongo.createClient(connectionString = mongodbConnectionUri).coroutine
     val database = kmongoClient.getDatabase(databaseName)
 
+    install(ContentNegotiation) {
+        json()
+    }
     configureMonitoring()
     configureHTTP()
     configureSecurity()

@@ -14,5 +14,6 @@ fun Application.configureRouting(database: CoroutineDatabase) {
         getAllShipTypesRoute(database)
         getAllUniqueShips(database)
         getShipsByClass(database)
+        createUserRoute(database)
     }
 }

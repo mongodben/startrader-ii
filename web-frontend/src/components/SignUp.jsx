@@ -5,10 +5,10 @@ import Input from "./Input";
 import { Words, Button, Content, Heading } from "arwes";
 import Frame from "arwes/lib/Frame";
 import SelectOption from "./Select";
-import Radio from './Radio';
-import LabelText from './LabelText';
-import Textarea from './Textarea';
-import Puffs from './Puffs'
+import Radio from "./Radio";
+import LabelText from "./LabelText";
+import Textarea from "./Textarea";
+import Puffs from "./Puffs";
 
 const SignUp = () => {
   const style = {
@@ -31,49 +31,59 @@ const SignUp = () => {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [name, setName] = useState("");
   const [species, setSpecies] = useState(1);
-  const [bio, setBio] = useState('');
-  const [faction, setFaction] = useState('rebellion');
+  const [bio, setBio] = useState("");
+  const [faction, setFaction] = useState("rebellion");
   const [speciesOptions, setSpeciesOptions] = useState([]);
-  
+
   const [errors, setErrors] = useState(null);
   const [loggedIn, setLoggedIn] = useState(false);
   const { login } = useContext(appContext);
 
-  useEffect(()=>{
-      ( async () => {
-        const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/users/species`);
-        const {species} = await res.json();
-        setSpeciesOptions(species);
-      })();
-  }, [])
+  useEffect(() => {
+    (async () => {
+      const res = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/users/species`
+      );
+      const { species } = await res.json();
+      setSpeciesOptions(species);
+    })();
+  }, []);
 
   const setFormValues = (e) => {
     if (e.target.name === "email") setEmail(e.target.value);
     else if (e.target.name === "password") setPassword(e.target.value);
-    else if (e.target.name === "confirmPassword") setConfirmPassword(e.target.value);
+    else if (e.target.name === "confirmPassword")
+      setConfirmPassword(e.target.value);
     else if (e.target.name === "name") setName(e.target.value);
     else if (e.target.name === "species") setSpecies(e.target.value);
     else if (e.target.name === "bio") setBio(e.target.value);
     else if (e.target.name === "faction") {
-      if(e.target.value === "rebellion") setFaction('rebellion');
-      else setFaction('empire');
+      if (e.target.value === "rebellion") setFaction("rebellion");
+      else setFaction("empire");
     }
-
   };
   const submitForm = async (e) => {
     e.preventDefault();
     console.table(
-        email, password, confirmPassword, name, species, bio, faction
-    )
-    if(password !== confirmPassword){ 
-        setErrors('It looks like you entered 2 different passwords. Please reenter your password the same in both fields and try again.');
-        setPassword('');
-        setConfirmPassword('');
-        document.getElementsByName('password')[0].value = '';
-        document.getElementsByName('confirmPassword')[0].value = '';
-        return;
+      email,
+      password,
+      confirmPassword,
+      name,
+      species,
+      bio,
+      faction
+    );
+    if (password !== confirmPassword) {
+      setErrors(
+        "It looks like you entered 2 different passwords. Please reenter your password the same in both fields and try again."
+      );
+      setPassword("");
+      setConfirmPassword("");
+      document.getElementsByName("password")[0].value = "";
+      document.getElementsByName("confirmPassword")[0].value = "";
+      return;
     }
-    
+
     try {
       const res = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/users/create`,
