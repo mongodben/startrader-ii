@@ -12,5 +12,7 @@ fun Application.configureRouting(database: CoroutineDatabase) {
         getStarshipByIdRoute(database)
         getSpeciesRoute(database)
         getAllShipTypesRoute(database)
+        getAllUniqueShips(database)
+        getShipsByClass(database)
     }
 }

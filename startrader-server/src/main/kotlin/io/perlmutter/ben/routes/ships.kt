@@ -16,6 +16,7 @@ import org.bson.types.ObjectId
 import org.litote.kmongo.coroutine.CoroutineDatabase
 import org.litote.kmongo.eq
 import org.litote.kmongo.id.toId
+import org.litote.kmongo.`in`
 import org.litote.kmongo.json
 
 fun Route.getAllShipsRoute(database: CoroutineDatabase) {
@@ -88,6 +89,54 @@ fun Route.getAllShipTypesRoute(database: CoroutineDatabase) {
         val shipTypes = database.getCollection<StarshipType>("ship_types")
         val allShipTypes = shipTypes.find().toList()
         val response = mapOf("ship_types" to allShipTypes).json
+
+        call.respond(HttpStatusCode.OK, response)
+    }
+}
+
+fun Route.getAllUniqueShips(database: CoroutineDatabase){
+    get("/ships/uniques") {
+        val starshipsTypes = database.getCollection<StarshipType>("ship_types")
+        val starships = database.getCollection<Starship>("starships")
+
+        val uniqueShipTypes = starshipsTypes.find(StarshipType::unique eq true).toList().map { it.key }
+
+        val pipeline = listOf(
+            Aggregates.match(Starship::ship_type_id `in`  uniqueShipTypes),
+            Aggregates.lookup("ship_types", "ship_type_id", "_id", "ship_type"),
+            Aggregates.lookup("users", "owner_user_id", "_id", "user"),
+            Aggregates.addFields(
+                Field("ship_type", Document("\$arrayElemAt", listOf("\$ship_type", 0))),
+                Field("user", Document("\$arrayElemAt", listOf("\$user", 0)))
+            ),
+        )
+        val results = starships.aggregate<Any>(pipeline).toList()
+
+        val response = mapOf("star_ships" to results).json
+
+        call.respond(HttpStatusCode.OK, response)
+    }
+}
+
+fun Route.getShipsByClass(database: CoroutineDatabase) {
+    get("/ships/class/{shipclass}") {
+        val shipClass = call.parameters["shipclass"]
+        val starships = database.getCollection<Starship>("starships")
+        val shipTypes = database.getCollection<StarshipType>("ship_types")
+
+        val pipeline = listOf(
+            Aggregates.lookup("ship_types", "ship_type_id", "_id", "ship_type"),
+            Aggregates.lookup("users", "owner_user_id", "_id", "user"),
+            Aggregates.addFields(
+                Field("ship_type", Document("\$arrayElemAt", listOf("\$ship_type", 0))),
+                Field("user", Document("\$arrayElemAt", listOf("\$user", 0)))
+            ),
+            Aggregates.match(Document("ship_type.starship_class", shipClass))
+        )
+
+        val results = starships.aggregate<Any>(pipeline).toList()
+
+        val response = mapOf("star_ships" to results).json
 
         call.respond(HttpStatusCode.OK, response)
     }
