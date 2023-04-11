@@ -1,4 +1,4 @@
-from source_data import species, ship_types, starships, transactions, users
+from source_data import species, ship_types, starships, transactions, users, passwords_per_user
 import json
 import datetime
 from bson import ObjectId
@@ -15,13 +15,13 @@ def find_element_by_id(id, elements, key):
     return element[key] if element else None
 
 
-def create_user_document(user, id, species):
+def create_user_document(user, id, species, hashed_password):
     user_species = find_element_by_id(user["species"], species, "species_type")
     return {
         "_id": id,
         "name": user["name"],
         "email": user["email"],
-        "password": user["password"],
+        "password": hashed_password,
         "species": user_species,
         "bio": user["bio"],
     }
@@ -99,7 +99,8 @@ def main():
     user_documents = []
     for index, user in enumerate(users):
         id = int_to_objectid(index + 1)
-        user_documents.append(create_user_document(user, id, species))
+        user_documents.append(create_user_document(
+            user, id, species, passwords_per_user[index]))
 
     # create starship documents
     starship_documents = []

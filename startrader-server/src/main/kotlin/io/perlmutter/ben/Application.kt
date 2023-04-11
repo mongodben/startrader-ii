@@ -14,6 +14,9 @@ import io.perlmutter.ben.plugins.configureMonitoring
 import io.perlmutter.ben.plugins.configureRouting
 import io.perlmutter.ben.plugins.configureSecurity
 import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.auth.*
+import io.ktor.server.auth.jwt.*
+import io.perlmutter.ben.utils.JwtManagement
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.json
 import org.litote.kmongo.reactivestreams.KMongo
@@ -37,6 +40,20 @@ fun Application.module() {
 
     install(ContentNegotiation) {
         json()
+    }
+    install(Authentication) {
+        jwt("auth-jwt") {
+            verifier(JwtManagement.verifier)
+            validate {JwtManagement.validator(it)}
+            challenge { _defaultScheme, _realm ->
+                call.respond(HttpStatusCode.Unauthorized,
+                    ErrorResponse(
+                        HttpStatusCode.Unauthorized.value,
+                        "Token is not valid or has expired").json
+                )
+            }
+        }
+
     }
     configureMonitoring()
     configureHTTP()
