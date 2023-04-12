@@ -1,14 +1,14 @@
-import React, {useContext} from 'react';
-import {Route, Redirect} from 'react-router-dom';
+import React, { useContext } from "react";
+import { Route, Redirect } from "react-router-dom";
 import appContext from "./Context";
 
 function PrivateRoute({ children, ...rest }) {
-  const loggedIn = JSON.parse(localStorage.getItem('id'))
+  const loggedIn = localStorage.getItem("id");
   return (
     <Route
       {...rest}
       render={({ location }) =>
-         loggedIn ? (
+        loggedIn ? (
           children
         ) : (
           <Redirect

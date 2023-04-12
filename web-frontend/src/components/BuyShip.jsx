@@ -1,40 +1,42 @@
-import React, {useContext} from 'react';
-import appContext from './Context';
+import React, { useContext } from "react";
+import appContext from "./Context";
 import { Button, Heading, Link, Words } from "arwes";
-import {FaTimesCircle} from 'react-icons/fa'
+import { FaTimesCircle } from "react-icons/fa";
 const style = {
-    wrapper: {padding: '2rem'},
-    buttonContainer: {
-        paddingTop: '1rem',
-        display: 'flex',
-        justifyContent: 'space-evenly'
-    },
-    exitButton: {
-      float: 'right',
-      postion: 'relative',
-      bottom: 15,
-    }
-
-}
+  wrapper: { padding: "2rem" },
+  buttonContainer: {
+    paddingTop: "1rem",
+    display: "flex",
+    justifyContent: "space-evenly",
+  },
+  exitButton: {
+    float: "right",
+    postion: "relative",
+    bottom: 15,
+  },
+};
 const BuyShip = ({ ship, rerenderParent, closeModal }) => {
   const { user, id, token } = useContext(appContext);
   const userCanBuy = user.credit >= ship.sale_price;
   const shipName = ship.custom_name || ship.starship_type.type_name;
 
   const buyShip = async () => {
-    const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/transactions`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: token,
-      },
-      body: JSON.stringify({
-        buyer: id,
-        seller: ship.user.id,
-        starship: ship.id,
-        sale_price: ship.sale_price,
-      }),
-    });
+    const res = await fetch(
+      `${process.env.REACT_APP_BACKEND_URL}/transactions`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: token,
+        },
+        body: JSON.stringify({
+          buyer: id,
+          seller: ship.user.key.$oid,
+          starship: ship.id,
+          sale_price: ship.sale_price,
+        }),
+      }
+    );
     const data = res.json();
     if (data.error) {
       alert(

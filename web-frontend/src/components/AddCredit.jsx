@@ -25,9 +25,9 @@ const EditProfile = ({ closeModal, renderProfile }) => {
   };
 
   const { id, token } = useContext(appContext);
-  
+
   const [credits, setCredit] = useState(0);
-  const [userCredits, setUserCredits] = useState(null)
+  const [userCredits, setUserCredits] = useState(null);
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
@@ -35,19 +35,18 @@ const EditProfile = ({ closeModal, renderProfile }) => {
       const res = await fetch(
         `${process.env.REACT_APP_BACKEND_URL}/users/${id}`
       );
-      const { user } = await res.json();
-      setUserCredits(user.credit); 
+      const user = await res.json();
+      setUserCredits(user.credit);
     })();
   }, [id]);
 
   const setFormValues = (e) => {
     if (e.target.name === "credit") setCredit(e.target.value);
-
   };
   const submitForm = async (e) => {
     e.preventDefault();
-    
-    //TODO: fix this up 
+
+    //TODO: fix this up
     const res = await fetch(
       `${process.env.REACT_APP_BACKEND_URL}/users/fundcredits/${id}`,
       {
@@ -57,20 +56,22 @@ const EditProfile = ({ closeModal, renderProfile }) => {
           Authorization: token,
         },
         body: JSON.stringify({
-          credits: parseInt(credits)
+          credits: parseInt(credits),
         }),
       }
     );
     const data = res.json();
     if (data.error) {
       setErrors(data.error);
-      alert("It looks like the IGBC network is having some problems processing your transfer of credits. Please try again later.")
+      alert(
+        "It looks like the IGBC network is having some problems processing your transfer of credits. Please try again later."
+      );
     } else {
       closeModal();
       renderProfile();
     }
   };
-  
+
   return (
     <div style={style.contentWrapper}>
       <Button onClick={closeModal}>
@@ -88,12 +89,12 @@ const EditProfile = ({ closeModal, renderProfile }) => {
         </Words>
       </div>
       <div>
-          <p>
-        <Words layer="primary">
+        <p>
+          <Words layer="primary">
             Credits will automatically be deducted from your InterGalactic
             Banking Clan (IGBC) account.
-        </Words>
-          </p>
+          </Words>
+        </p>
         <form onSubmit={submitForm} style={style.loginForm}>
           <Input
             label="Add Credits: "

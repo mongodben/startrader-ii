@@ -3,7 +3,6 @@ import com.auth0.jwt.JWT
 import com.auth0.jwt.algorithms.Algorithm
 import io.github.cdimascio.dotenv.dotenv
 import io.ktor.server.auth.jwt.*
-import java.security.Principal
 import java.util.Date
 
 val dotenv = dotenv()
@@ -15,6 +14,7 @@ object JwtManagement {
             .withClaim("username", username)
             .withExpiresAt(Date(System.currentTimeMillis() + 60000))
             .sign(Algorithm.HMAC256(jwtSecret))
+
     }
     fun validator(credential: JWTCredential): JWTPrincipal? {
         if (credential.payload.getClaim("username").asString() != "") {

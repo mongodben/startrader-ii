@@ -16,6 +16,7 @@ import io.perlmutter.ben.plugins.configureSecurity
 import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.auth.*
 import io.ktor.server.auth.jwt.*
+import  io.ktor.server.plugins.cors.routing.*
 import io.perlmutter.ben.utils.JwtManagement
 import org.litote.kmongo.coroutine.coroutine
 import org.litote.kmongo.json
@@ -54,6 +55,17 @@ fun Application.module() {
             }
         }
 
+    }
+    install(CORS) {
+        allowMethod(HttpMethod.Options)
+        allowMethod(HttpMethod.Put)
+        allowMethod(HttpMethod.Delete)
+        allowMethod(HttpMethod.Patch)
+        allowHeader(HttpHeaders.Authorization)
+        allowHeader(HttpHeaders.ContentType)
+        allowCredentials = true
+        anyHost() // Allow requests from any host (for development purposes)
+        // You can also specify specific hosts using the "host" function, e.g., host("example.com")
     }
     configureMonitoring()
     configureHTTP()

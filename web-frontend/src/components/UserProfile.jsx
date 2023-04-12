@@ -109,7 +109,7 @@ const UserProfile = ({ classes, personalProfile }) => {
         <LoadingBig />
       ) : (
         <Content className={classes.profileWrapper}>
-          {console.log(user)}
+          {console.log("USER:: ", user)}
           <div className={classes.profileContentWrapper}>
             <Frame animate level={3} corners={4}>
               <section className={classes.profileContent}>
